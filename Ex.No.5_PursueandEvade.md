@@ -1,6 +1,6 @@
 # Ex.No: 5  Implementation of Steering behaviour-Pursue and Evade in Unity
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE:24/02/2026                                                                            
+### REGISTER NUMBER : 212224040092
 ### AIM: 
 To write a program to simulate the process of Pursue and Evade behavior in Unity using NavigationMeshAgent. 
 ### Algorithm:
@@ -21,7 +21,7 @@ To write a program to simulate the process of Pursue and Evade behavior in Unity
    Go to the Bake tab and click Bake.
    or
    Add navMeshSurface to plane and bake 
-4. Add NavMeshAgent Component 
+4. Add NavMeshAgent Component
     Select Pursuer, and Evader.
     Click Add Component → Search for NavMeshAgent and add it.
     Adjust NavMeshAgent Settings:
@@ -40,8 +40,8 @@ public class Player_movement : MonoBehaviour
     public float speed;
     void Start()
     {
-        float xdir = Input.GetAxis("Horizontal") * speed;
-        float zdir = Input.GetAxis("Vertical") * speed;
+        float xdir = Input.GetAxis("horizontal") * speed;
+        float zdir = Input.GetAxis("vertical") * speed;
         transform.position=new Vector3(xdir,zdir);
     }
 
@@ -80,7 +80,7 @@ public class Evader : MonoBehaviour
 public class Pursuer: MonoBehaviour
 {
     // Start is called before the first frame update
-    public NavMeshAgent agent;
+    NavMeshAgent agent;
     public Transform target;
     public float speed;
     void Start()
@@ -92,7 +92,7 @@ public class Pursuer: MonoBehaviour
     {
        Vector3 targetvelocity=target.position-transform.position;
        Vector3 futurepos = transform.position + targetvelocity.normalized*speed;
-       agent.SetDestination(futurepos);
+       agent.SetDestination(target.position);
     } 
     // Update is called once per frame
     void Update()
@@ -108,11 +108,9 @@ public class Pursuer: MonoBehaviour
 ```
 ### Output:
 
+<img width="1919" height="991" alt="image" src="https://github.com/user-attachments/assets/847675d6-9162-433c-9088-c585d450d42c" />
 
-
-
-
-
+<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/227f3f33-3556-4c37-9ccd-5270afda367f" />
 
 
 
